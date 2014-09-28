@@ -5,6 +5,10 @@ import org.junit.Before;
 import org.junit.After;
 import com.mytest.TreeNode;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
 import static org.junit.Assert.assertEquals;
 
 /** 
@@ -42,6 +46,17 @@ public void before() throws Exception {
        node2.left = node4;
        node4.left = node5;
 
+/*
+      1
+     / \
+    2   3
+   /
+  4
+ /
+5
+
+*/
+
        root2 = new TreeNode<Integer>(1);
        node22 = new TreeNode<Integer>(2);
        node32 = new TreeNode<Integer>(3);
@@ -75,7 +90,43 @@ public void testMain() throws Exception {
 @Test
 public void testPreorder() throws Exception {
     System.out.println("testPreorder");
-    TreeNode.preorder(root);
+    List<Integer> list = new ArrayList<Integer>();
+    TreeNode.preorder(root, list);
+    System.out.println(list);
+}
+
+/**
+*
+* Method: testPreorder(TreeNode root)
+*
+*/
+@Test
+public void testPreorder2() throws Exception {
+    System.out.println("testPreorder2");
+    Vector<Integer> result = TreeNode.preorderNonRecursive(root);
+    System.out.println(result);
+}
+/**
+*
+* Method: testInorder2(TreeNode root)
+*
+*/
+@Test
+public void testInorder() throws Exception {
+    System.out.println("testInorder2");
+    Vector<Integer> result = TreeNode.inorderNonRecursive(root);
+    System.out.println(result);
+}
+/**
+*
+* Method: testPostorder(TreeNode root)
+*
+*/
+@Test
+public void testPostorder() throws Exception{
+    System.out.println("testPostorder");
+    List<Integer> result = TreeNode.postorderNonRecursive(root);
+    System.out.println(result);
 }
 /**
 *
