@@ -33,18 +33,36 @@ public class testClimbingStairs {
         return current;
 
     }
-
-    public static long climbStairs(long n) {
-
-        return fibonacci_iteration(n);
+    //Dynamic Programming, cache middle result
+    static long fib[] = new long[100];
+    public static long fibonacci_DP(int n){
+        if (n == 1){
+            return 1;
+        }
+        if (n == 2){
+            return 2;
+        }
+        if(fib[n] !=0){
+            return  fib[n];
+        }
+        fib[n] = fibonacci_DP(n -1) + fibonacci_DP(n-2);
+        return fib[n];
     }
 
+
     public static void main(String[] args){
-        System.out.println(System.currentTimeMillis());
+        long bt= System.currentTimeMillis();
         System.out.println(fibonacci_recursive(50));
-        System.out.println(System.currentTimeMillis());
+        long et = System.currentTimeMillis();
+        System.out.println(String.format("calculate time: %d", et-bt));
+        bt= System.currentTimeMillis();
+        System.out.println(fibonacci_DP(50));
+        et = System.currentTimeMillis();
+        System.out.println(String.format("calculate time: %d", et-bt));
+        bt= System.currentTimeMillis();
         System.out.println(fibonacci_iteration(50));
-        System.out.println(System.currentTimeMillis());
+        et = System.currentTimeMillis();
+        System.out.println(String.format("calculate time: %d", et-bt));
 
     }
 }
