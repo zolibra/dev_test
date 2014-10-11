@@ -1,5 +1,8 @@
 package Question1_1;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Question {
 
 	public static boolean isUniqueChars(String str) {
@@ -11,7 +14,8 @@ public class Question {
 			int val = str.charAt(i) - 'a';
 			if ((checker & (1 << val)) > 0) return false;
 			checker |= (1 << val);
-		}
+            Array.setInt();
+        }
 		return true;
 	}
 	

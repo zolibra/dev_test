@@ -7,6 +7,17 @@ import java.util.Scanner;
 /**
  * Created by ray on 10/3/14.
  */
+/*
+Sample Input
+3
+abcdde
+baccd
+eeabg
+Sample Output
+2
+
+Other
+ */
 public class GemStones {
 
          public static void main(String[] args) {
